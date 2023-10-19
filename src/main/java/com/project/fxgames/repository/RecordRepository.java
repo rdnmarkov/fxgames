@@ -17,9 +17,9 @@ public interface RecordRepository extends JpaRepository<Record, String> {
     @Modifying
     @Query(value =
             "DELETE FROM record WHERE id IN (" +
-            "SELECT id FROM (SELECT id, SUM(OCTET_LENGTH(message)) OVER (ORDER BY time DESC) AS cumulative_size" +
-            " FROM record WHERE user_id = ?1) subquery" +
-            " WHERE cumulative_size > ?3) AND id NOT LIKE ?2"
+                    "SELECT id FROM (SELECT id, SUM(OCTET_LENGTH(message)) OVER (ORDER BY time DESC) AS cumulative_size" +
+                    " FROM record WHERE user_id = ?1) subquery" +
+                    " WHERE cumulative_size > ?3) AND id NOT LIKE ?2"
             , nativeQuery = true)
     void deleteRecords(String userId, String id, Long limit);
 

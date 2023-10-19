@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/fxgames")
+@RequestMapping
 public class FXGamesController {
-    public final static String POST_URL = "/set/{userId}/{id}";
-    public final static String GET_URL = "/get/{userId}/{id}";
+    public final static String POST_URL = "/fxgames/set/{userId}/{id}";
+    public final static String GET_URL = "/fxgames/get/{userId}/{id}";
 
     private final FXGamesService fxGamesService;
 
