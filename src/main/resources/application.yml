@@ -11,5 +11,4 @@ spring:
     hibernate.ddl-auto: create
 
 fxgames:
-  max-size: 800
-  size-column: 256
+  limit: 123

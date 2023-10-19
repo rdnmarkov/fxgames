@@ -1,6 +1,5 @@
 package com.project.fxgames.controller;
 
-import com.project.fxgames.exception.DataNotFoundException;
 import com.project.fxgames.service.FXGamesService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

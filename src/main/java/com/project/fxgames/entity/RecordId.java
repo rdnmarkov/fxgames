@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class RecordId implements Serializable {
 
-    @Column(name="id", unique = true)
+    @Column(name = "id", unique = true)
     private String id;
 
     private String userId;
