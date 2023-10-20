@@ -2,12 +2,12 @@ version: '2'
 
 services:
   app:
-    image: 'rmarkov755/fxgames-project'
+    image: 'fxgames:2'
     ports:
       - '8080:8080'
     build:
       context: .
-    container_name: fxgames1
+    container_name: fxgames2
     depends_on:
       - db
     environment:
@@ -16,7 +16,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SPRING_JPA_SHOW_SQL=false
-      - CONFIG_LOCATION=classpath://application-dev.yml
+      - FXGAMES_LIMIT_RECORD_MEASSAGE_BYTE=123
 
   db:
     image: 'postgres:13.1-alpine'

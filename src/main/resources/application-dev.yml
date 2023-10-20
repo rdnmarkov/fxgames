@@ -11,4 +11,4 @@ spring:
     hibernate.ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
 
 fxgames:
-  limit: 123
+  limit: ${FXGAMES_LIMIT_RECORD_MEASSAGE_BYTE}
