@@ -3,7 +3,6 @@ package com.project.fxgames.service.impl;
 import com.project.fxgames.config.FXGamesProperties;
 import com.project.fxgames.entity.Record;
 import com.project.fxgames.entity.RecordId;
-import com.project.fxgames.exception.BadRequestException;
 import com.project.fxgames.exception.DataNotFoundException;
 import com.project.fxgames.repository.RecordRepository;
 import org.junit.Test;
@@ -14,7 +13,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -49,18 +48,6 @@ public class RecordServiceImplTest {
         when(recordRepository.findByRecordId_Id(id)).thenReturn(Optional.empty());
 
         recordService.getRecordById(id);
-
-    }
-
-    @Test(expected = BadRequestException.class)
-    public void testSaveRecordAndDeleteBadRequest() {
-
-        Record record = new Record();
-        record.setRecordId(new RecordId("123", "user1"));
-        when(recordRepository.save(record)).thenThrow(BadRequestException.class);
-
-
-        recordService.saveRecordAndDelete(record);
 
     }
 

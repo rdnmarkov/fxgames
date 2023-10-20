@@ -2,7 +2,6 @@ package com.project.fxgames.service.impl;
 
 import com.project.fxgames.config.FXGamesProperties;
 import com.project.fxgames.entity.Record;
-import com.project.fxgames.exception.BadRequestException;
 import com.project.fxgames.exception.DataNotFoundException;
 import com.project.fxgames.repository.RecordRepository;
 import com.project.fxgames.service.RecordService;
@@ -26,12 +25,7 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public Record saveRecordAndDelete(Record record) {
-        Record saveRecord;
-        try {
-            saveRecord = recordRepository.save(record);
-        }catch (Exception ex){
-            throw new BadRequestException(record.getRecordId().getId());
-        }
+        Record saveRecord = recordRepository.save(record);
 
         recordRepository.deleteRecords(record.getRecordId().getUserId(),
                 saveRecord.getRecordId().getId(),
